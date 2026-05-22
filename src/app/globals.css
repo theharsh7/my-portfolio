@@ -335,3 +335,24 @@ body {
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
 }
+
+@keyframes pipeline-flow {
+  0% {
+    stroke-dashoffset: 320;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.pipeline-flow-line {
+  stroke-dasharray: 80 240;
+  animation: pipeline-flow 3s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipeline-flow-line {
+    animation: none;
+    stroke-dasharray: none;
+  }
+}
