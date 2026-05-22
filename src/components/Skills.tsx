@@ -40,7 +40,6 @@ const skills = [
 export function Skills() {
   return (
     <section id="skills" className="relative py-28">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent" />
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           label="Skills"

@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { AnimatedGradientBackground } from "@/components/AnimatedGradientBackground";
 import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
@@ -10,6 +11,8 @@ import { Skills } from "@/components/Skills";
 export default function Home() {
   return (
     <>
+      <AnimatedGradientBackground />
+      <div className="relative z-10">
       <Navbar />
       <main>
         <Hero />
@@ -20,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      </div>
     </>
   );
 }

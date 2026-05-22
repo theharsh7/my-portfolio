@@ -4,10 +4,8 @@ import { motion } from "framer-motion";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-16 mesh-bg">
+    <section className="relative min-h-screen overflow-hidden pt-16">
       <div className="pointer-events-none absolute inset-0 grid-pattern" />
-      <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[120px] animate-pulse-glow" />
-      <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-violet-500/10 blur-[100px] animate-float" />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col justify-center px-6 py-24 lg:px-8">
         <motion.div
