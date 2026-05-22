@@ -1,8 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { ScrollSection, ScrollStagger, scaleIn } from "./motion";
 
 const projects = [
   {
@@ -37,32 +35,32 @@ const projects = [
 
 export function Projects() {
   return (
-    <ScrollSection id="projects" className="relative py-28">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section id="projects" className="section-shell relative">
+      <div className="container-main">
         <SectionHeading
           label="Projects"
           title="Selected work"
           description="Production systems spanning ingestion, modeling, and the backends that surface insights."
         />
-        <ScrollStagger className="grid gap-6 md:grid-cols-2">
+        <ul className="grid gap-4 sm:gap-6 md:grid-cols-2">
           {projects.map((project) => (
-            <motion.article
+            <li
               key={project.title}
-              variants={scaleIn}
-              className="glow-card group flex flex-col rounded-2xl p-8"
+              data-gsap="project-card"
+              className="glow-card group flex list-none flex-col rounded-2xl p-5 sm:p-6 lg:p-8"
             >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="text-xl font-medium tracking-tight text-zinc-100 transition-colors group-hover:text-gradient-accent">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                <h3 className="text-lg font-medium tracking-tight text-zinc-100 transition-colors group-hover:text-gradient-accent sm:text-xl">
                   {project.title}
                 </h3>
-                <span className="shrink-0 rounded-lg bg-gradient-to-r from-blue-600/20 to-violet-600/20 px-3 py-1 font-mono text-xs text-blue-300">
+                <span className="w-fit shrink-0 rounded-lg bg-gradient-to-r from-blue-600/20 to-violet-600/20 px-3 py-1 font-mono text-xs text-blue-300">
                   {project.metric}
                 </span>
               </div>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-zinc-500">
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-500 sm:mt-4">
                 {project.description}
               </p>
-              <ul className="mt-6 flex flex-wrap gap-2">
+              <ul className="mt-4 flex flex-wrap gap-2 sm:mt-6">
                 {project.tags.map((tag) => (
                   <li
                     key={tag}
@@ -74,15 +72,15 @@ export function Projects() {
               </ul>
               <button
                 type="button"
-                className="mt-6 inline-flex w-fit items-center gap-1 text-sm text-zinc-400 transition-all group-hover:gap-2 group-hover:text-zinc-200"
+                className="mt-4 inline-flex min-h-[44px] w-fit items-center gap-1 text-sm text-zinc-400 transition-all group-hover:gap-2 group-hover:text-zinc-200 sm:mt-6"
               >
                 Case study
                 <span>→</span>
               </button>
-            </motion.article>
+            </li>
           ))}
-        </ScrollStagger>
+        </ul>
       </div>
-    </ScrollSection>
+    </section>
   );
 }

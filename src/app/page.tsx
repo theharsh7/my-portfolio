@@ -3,16 +3,18 @@ import { AnimatedGradientBackground } from "@/components/AnimatedGradientBackgro
 import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
+import { GsapScrollAnimations } from "@/components/GsapScrollAnimations";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Projects } from "@/components/Projects";
-import { ScrollMotionProvider } from "@/components/ScrollMotionProvider";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Skills } from "@/components/Skills";
 
 export default function Home() {
   return (
-    <ScrollMotionProvider>
+    <SmoothScrollProvider>
+      <GsapScrollAnimations />
       <AnimatedGradientBackground />
       <ScrollProgress />
       <div className="relative z-10">
@@ -27,6 +29,6 @@ export default function Home() {
         </main>
         <Footer />
       </div>
-    </ScrollMotionProvider>
+    </SmoothScrollProvider>
   );
 }

@@ -1,18 +1,12 @@
-"use client";
-
-import { ScrollReveal } from "./motion";
-
 export function Footer() {
   return (
-    <ScrollReveal direction="up" delay={0}>
-      <footer className="border-t border-white/5 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-zinc-500 sm:flex-row lg:px-8">
-          <p>© {new Date().getFullYear()} Data Engineer Portfolio</p>
-          <p className="font-mono text-xs">
-            Built with Next.js & Tailwind CSS
-          </p>
-        </div>
-      </footer>
-    </ScrollReveal>
+    <footer data-gsap="reveal" className="border-t border-white/5 py-6 sm:py-8">
+      <div className="container-main flex flex-col items-center justify-between gap-3 text-center text-sm text-zinc-500 sm:flex-row sm:gap-4 sm:text-left">
+        <p>© {new Date().getFullYear()} Data Engineer Portfolio</p>
+        <p className="font-mono text-xs">
+          Next.js · Tailwind · Lenis · GSAP
+        </p>
+      </div>
+    </footer>
   );
 }

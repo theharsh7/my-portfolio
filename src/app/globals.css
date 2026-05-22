@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 :root {
   --background: #050508;
@@ -21,13 +22,76 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Layout */
+.section-shell {
+  position: relative;
+  padding-block: 4rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding-block: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-shell {
+    padding-block: 7rem;
+  }
+}
+
+.container-main {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-main {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-main {
+    padding-inline: 2rem;
+  }
+}
+
+/* GSAP: avoid flash before JS (progressive) */
+html:not(.gsap-ready) [data-gsap="reveal"],
+html:not(.gsap-ready) [data-gsap="project-card"],
+html:not(.gsap-ready) [data-gsap="heading-label"],
+html:not(.gsap-ready) [data-gsap="heading-title"],
+html:not(.gsap-ready) [data-gsap="heading-desc"] {
+  opacity: 0;
+}
+
+html.gsap-ready [data-gsap] {
+  opacity: 1;
 }
 
 ::selection {
@@ -171,16 +235,28 @@ body {
   pointer-events: none;
 }
 
-.glow-card:hover {
-  border-color: rgba(139, 92, 246, 0.25);
-  box-shadow:
-    0 0 40px rgba(59, 130, 246, 0.12),
-    0 0 80px rgba(139, 92, 246, 0.08);
-  transform: translateY(-4px);
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .glow-card:hover {
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow:
+      0 0 40px rgba(59, 130, 246, 0.12),
+      0 0 80px rgba(139, 92, 246, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .glow-card:hover::before {
+    opacity: 1;
+  }
 }
 
-.glow-card:hover::before {
-  opacity: 1;
+@media (max-width: 767px) {
+  .animated-gradient-spin {
+    opacity: 0.45;
+  }
+
+  .gradient-orb {
+    filter: blur(60px);
+  }
 }
 
 .text-gradient {
@@ -243,7 +319,6 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  will-change: transform;
 }
 
 .gradient-orb-1 {

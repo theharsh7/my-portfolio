@@ -1,8 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ScrollStagger, fadeDown, fadeUp } from "./motion";
-
 export function SectionHeading({
   label,
   title,
@@ -13,27 +8,30 @@ export function SectionHeading({
   description?: string;
 }) {
   return (
-    <ScrollStagger className="mb-14 max-w-2xl">
-      <motion.p
-        variants={fadeDown}
-        className="mb-3 font-mono text-xs uppercase tracking-[0.2em] text-blue-400/90"
+    <div
+      data-gsap="section-heading"
+      className="section-heading mb-10 max-w-2xl sm:mb-12 lg:mb-14"
+    >
+      <p
+        data-gsap="heading-label"
+        className="mb-3 font-mono text-[10px] uppercase tracking-[0.2em] text-blue-400/90 sm:text-xs"
       >
         {label}
-      </motion.p>
-      <motion.h2
-        variants={fadeUp}
-        className="text-3xl font-semibold tracking-tight text-zinc-50 sm:text-4xl"
+      </p>
+      <h2
+        data-gsap="heading-title"
+        className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl lg:text-4xl"
       >
         {title}
-      </motion.h2>
+      </h2>
       {description && (
-        <motion.p
-          variants={fadeUp}
-          className="mt-4 text-base leading-relaxed text-zinc-400"
+        <p
+          data-gsap="heading-desc"
+          className="mt-3 text-sm leading-relaxed text-zinc-400 sm:mt-4 sm:text-base"
         >
           {description}
-        </motion.p>
+        </p>
       )}
-    </ScrollStagger>
+    </div>
   );
 }

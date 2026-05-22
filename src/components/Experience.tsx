@@ -1,8 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { ScrollSection, ScrollStagger, fadeLeft } from "./motion";
 
 const experience = [
   {
@@ -38,62 +36,55 @@ const experience = [
 
 export function Experience() {
   return (
-    <ScrollSection id="experience" className="relative py-28">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section id="experience" className="section-shell relative">
+      <div className="container-main">
         <SectionHeading
           label="Experience"
           title="Where I've delivered impact"
           description="Roles focused on scalable data infrastructure and cross-functional partnership."
         />
-        <div className="relative space-y-0">
-          <ScrollRevealLine />
-          <ScrollStagger>
+        <div className="relative md:pl-8" data-gsap="experience-list">
+          <div
+            data-gsap="timeline-line"
+            className="absolute left-0 top-2 hidden h-[calc(100%-0.5rem)] w-px origin-top bg-gradient-to-b from-blue-500/50 via-violet-500/30 to-transparent md:block"
+            aria-hidden
+          />
+          <ul className="space-y-4 sm:space-y-6">
             {experience.map((job) => (
-              <motion.article
-                key={job.company}
-                variants={fadeLeft}
-                className="glow-card relative mb-6 rounded-2xl p-6 md:ml-8 md:p-8"
-              >
-                <div className="absolute -left-8 top-8 hidden h-3 w-3 rounded-full border-2 border-blue-400 bg-[#050508] md:block" />
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <h3 className="text-lg font-medium text-zinc-100">
-                      {job.role}
-                    </h3>
-                    <p className="text-sm text-blue-400/90">{job.company}</p>
+              <li key={job.company} data-gsap="reveal" className="list-none">
+                <article className="glow-card relative rounded-2xl p-5 sm:p-6 md:p-8">
+                  <div
+                    className="absolute -left-[calc(2rem+5px)] top-7 hidden h-3 w-3 rounded-full border-2 border-blue-400 bg-[#050508] md:block"
+                    aria-hidden
+                  />
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                    <div className="min-w-0">
+                      <h3 className="text-base font-medium text-zinc-100 sm:text-lg">
+                        {job.role}
+                      </h3>
+                      <p className="text-sm text-blue-400/90">{job.company}</p>
+                    </div>
+                    <time className="shrink-0 font-mono text-xs text-zinc-500">
+                      {job.period}
+                    </time>
                   </div>
-                  <time className="font-mono text-xs text-zinc-500">
-                    {job.period}
-                  </time>
-                </div>
-                <ul className="mt-5 space-y-2">
-                  {job.highlights.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 text-sm leading-relaxed text-zinc-400"
-                    >
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-violet-400" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
+                  <ul className="mt-4 space-y-2 sm:mt-5">
+                    {job.highlights.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 text-sm leading-relaxed text-zinc-400"
+                      >
+                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-violet-400" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </li>
             ))}
-          </ScrollStagger>
+          </ul>
         </div>
       </div>
-    </ScrollSection>
-  );
-}
-
-function ScrollRevealLine() {
-  return (
-    <motion.div
-      initial={{ scaleY: 0, opacity: 0 }}
-      whileInView={{ scaleY: 1, opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      className="absolute left-[11px] top-2 hidden h-[calc(100%-1rem)] w-px origin-top bg-gradient-to-b from-blue-500/50 via-violet-500/30 to-transparent md:block"
-    />
+    </section>
   );
 }

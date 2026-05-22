@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 const nodes = [
   { id: "s3", label: "AWS S3", sub: "Raw zone" },
   { id: "py", label: "Python", sub: "ETL" },
@@ -17,26 +15,23 @@ const metrics = [
 
 export function HeroPipelineVisual() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="relative w-full max-w-lg lg:max-w-none lg:justify-self-end"
+    <div
+      data-gsap="hero-visual"
+      className="relative mx-auto w-full max-w-lg lg:max-w-none lg:justify-self-end"
     >
-      <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-violet-500/20 blur-2xl" />
+      <div className="pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue-500/15 via-transparent to-violet-500/15 blur-2xl sm:-inset-4" />
 
       <div className="glow-card relative overflow-hidden rounded-2xl border-white/10 bg-white/[0.04] shadow-2xl shadow-blue-500/5 backdrop-blur-md">
-        {/* Window chrome */}
-        <div className="flex items-center justify-between border-b border-white/5 px-4 py-3">
+        <div className="flex items-center justify-between border-b border-white/5 px-3 py-2.5 sm:px-4 sm:py-3">
           <div className="flex gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+            <span className="h-2 w-2 rounded-full bg-zinc-600 sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-zinc-600 sm:h-2.5 sm:w-2.5" />
+            <span className="h-2 w-2 rounded-full bg-zinc-600 sm:h-2.5 sm:w-2.5" />
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+          <span className="font-mono text-[9px] uppercase tracking-wider text-zinc-500 sm:text-[10px]">
             pipeline.live
           </span>
-          <span className="flex items-center gap-1.5 font-mono text-[10px] text-emerald-400/90">
+          <span className="flex items-center gap-1 font-mono text-[9px] text-emerald-400/90 sm:text-[10px]">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
               <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -45,11 +40,10 @@ export function HeroPipelineVisual() {
           </span>
         </div>
 
-        <div className="p-5 sm:p-6">
-          {/* Pipeline flow */}
-          <div className="relative mb-6">
+        <div className="p-4 sm:p-6">
+          <div className="relative mb-5 sm:mb-6">
             <svg
-              className="absolute left-0 right-0 top-1/2 h-8 -translate-y-1/2 text-zinc-700"
+              className="absolute left-0 right-0 top-1/2 h-6 -translate-y-1/2 text-zinc-700 sm:h-8"
               viewBox="0 0 400 8"
               preserveAspectRatio="none"
               aria-hidden
@@ -82,53 +76,44 @@ export function HeroPipelineVisual() {
                 </linearGradient>
               </defs>
             </svg>
-            <ul className="relative grid grid-cols-4 gap-2">
-              {nodes.map((node, i) => (
-                <motion.li
-                  key={node.id}
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + i * 0.1 }}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[10px] font-medium text-zinc-300 shadow-inner sm:h-11 sm:w-11">
+            <ul className="relative grid grid-cols-4 gap-1 sm:gap-2">
+              {nodes.map((node) => (
+                <li key={node.id} className="flex flex-col items-center text-center">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[9px] font-medium text-zinc-300 sm:h-11 sm:w-11 sm:text-[10px]">
                     {node.label.split(" ")[0].slice(0, 2).toUpperCase()}
                   </div>
-                  <p className="mt-2 text-[10px] font-medium text-zinc-300 sm:text-xs">
+                  <p className="mt-1.5 text-[9px] font-medium text-zinc-300 sm:mt-2 sm:text-xs">
                     {node.label}
                   </p>
-                  <p className="text-[9px] text-zinc-600">{node.sub}</p>
-                </motion.li>
+                  <p className="text-[8px] text-zinc-600 sm:text-[9px]">{node.sub}</p>
+                </li>
               ))}
             </ul>
           </div>
 
-          {/* Metrics */}
-          <div className="mb-5 grid grid-cols-3 gap-2">
-            {metrics.map((m, i) => (
-              <motion.div
+          <div className="mb-4 grid grid-cols-3 gap-1.5 sm:mb-5 sm:gap-2">
+            {metrics.map((m) => (
+              <div
                 key={m.label}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.9 + i * 0.08 }}
-                className="rounded-lg border border-white/5 bg-white/[0.03] px-2.5 py-2.5 sm:px-3"
+                className="rounded-lg border border-white/5 bg-white/[0.03] px-2 py-2 sm:px-3 sm:py-2.5"
               >
-                <p className="text-[9px] text-zinc-500 sm:text-[10px]">{m.label}</p>
-                <p className="mt-0.5 font-mono text-xs font-medium text-zinc-100 sm:text-sm">
+                <p className="text-[8px] text-zinc-500 sm:text-[10px]">{m.label}</p>
+                <p className="mt-0.5 font-mono text-[10px] font-medium text-zinc-100 sm:text-sm">
                   {m.value}
                 </p>
-                <p className="mt-0.5 text-[9px] text-emerald-400/80">{m.trend}</p>
-              </motion.div>
+                <p className="mt-0.5 text-[8px] text-emerald-400/80 sm:text-[9px]">
+                  {m.trend}
+                </p>
+              </div>
             ))}
           </div>
 
-          {/* SQL snippet */}
-          <div className="overflow-hidden rounded-lg border border-white/5 bg-black/40 font-mono text-[10px] leading-relaxed sm:text-[11px]">
-            <div className="border-b border-white/5 px-3 py-1.5 text-zinc-600">
+          <div className="overflow-hidden rounded-lg border border-white/5 bg-black/40 font-mono text-[9px] leading-relaxed sm:text-[11px]">
+            <div className="border-b border-white/5 px-2.5 py-1 text-zinc-600 sm:px-3 sm:py-1.5">
               metrics_daily.sql
             </div>
-            <pre className="overflow-x-auto p-3 text-zinc-500">
-              <code>
+            <pre className="overflow-x-auto p-2.5 sm:p-3">
+              <code className="text-zinc-500">
                 <span className="text-violet-400/90">SELECT</span>
                 {"\n  "}
                 <span className="text-blue-400/90">date</span>,{" "}
@@ -137,16 +122,11 @@ export function HeroPipelineVisual() {
                 {"\n"}
                 <span className="text-violet-400/90">FROM</span>{" "}
                 <span className="text-emerald-400/80">analytics.marts</span>
-                {"\n"}
-                <span className="text-violet-400/90">WHERE</span>{" "}
-                <span className="text-amber-400/80">status</span> ={" "}
-                <span className="text-amber-300/90">&apos;active&apos;</span>
-                <span className="inline-block w-1.5 animate-pulse bg-blue-400/80 ml-0.5 align-middle" />
               </code>
             </pre>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
