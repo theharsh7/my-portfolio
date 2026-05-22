@@ -1,7 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { FadeIn } from "./motion";
+import { ScrollSection, ScrollStagger, fadeLeft } from "./motion";
 
 const experience = [
   {
@@ -37,7 +38,7 @@ const experience = [
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-28">
+    <ScrollSection id="experience" className="relative py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           label="Experience"
@@ -45,10 +46,14 @@ export function Experience() {
           description="Roles focused on scalable data infrastructure and cross-functional partnership."
         />
         <div className="relative space-y-0">
-          <div className="absolute left-[11px] top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-blue-500/50 via-violet-500/30 to-transparent md:block" />
-          {experience.map((job, i) => (
-            <FadeIn key={job.company} delay={i * 0.1}>
-              <article className="glow-card relative mb-6 rounded-2xl p-6 md:ml-8 md:p-8">
+          <ScrollRevealLine />
+          <ScrollStagger>
+            {experience.map((job) => (
+              <motion.article
+                key={job.company}
+                variants={fadeLeft}
+                className="glow-card relative mb-6 rounded-2xl p-6 md:ml-8 md:p-8"
+              >
                 <div className="absolute -left-8 top-8 hidden h-3 w-3 rounded-full border-2 border-blue-400 bg-[#050508] md:block" />
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -72,11 +77,23 @@ export function Experience() {
                     </li>
                   ))}
                 </ul>
-              </article>
-            </FadeIn>
-          ))}
+              </motion.article>
+            ))}
+          </ScrollStagger>
         </div>
       </div>
-    </section>
+    </ScrollSection>
+  );
+}
+
+function ScrollRevealLine() {
+  return (
+    <motion.div
+      initial={{ scaleY: 0, opacity: 0 }}
+      whileInView={{ scaleY: 1, opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      className="absolute left-[11px] top-2 hidden h-[calc(100%-1rem)] w-px origin-top bg-gradient-to-b from-blue-500/50 via-violet-500/30 to-transparent md:block"
+    />
   );
 }

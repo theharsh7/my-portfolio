@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { stagger, fadeUp } from "./motion";
+import { ScrollSection, ScrollStagger, scaleIn } from "./motion";
 
 const projects = [
   {
@@ -37,24 +37,18 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-28">
+    <ScrollSection id="projects" className="relative py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           label="Projects"
           title="Selected work"
           description="Production systems spanning ingestion, modeling, and the backends that surface insights."
         />
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={stagger}
-          className="grid gap-6 md:grid-cols-2"
-        >
+        <ScrollStagger className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
             <motion.article
               key={project.title}
-              variants={fadeUp}
+              variants={scaleIn}
               className="glow-card group flex flex-col rounded-2xl p-8"
             >
               <div className="flex items-start justify-between gap-4">
@@ -87,8 +81,8 @@ export function Projects() {
               </button>
             </motion.article>
           ))}
-        </motion.div>
+        </ScrollStagger>
       </div>
-    </section>
+    </ScrollSection>
   );
 }

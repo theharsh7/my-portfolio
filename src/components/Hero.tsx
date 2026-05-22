@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { HeroPipelineVisual } from "./HeroPipelineVisual";
 import { HeroRotatingLine } from "./HeroRotatingLine";
+import { ScrollStagger, fadeUp } from "./motion";
 
 const techStack = ["SQL", "Snowflake", "AWS S3", "Python", "Dashboard APIs"];
 
@@ -123,18 +124,11 @@ export function Hero() {
         </div>
 
         {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.75, ease }}
-          className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 lg:mt-20"
-        >
-          {stats.map((stat, i) => (
+        <ScrollStagger className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 lg:mt-20">
+          {stats.map((stat) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.85 + i * 0.06 }}
+              variants={fadeUp}
               className="glow-card rounded-xl px-4 py-5 sm:px-5"
             >
               <p className="text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl">
@@ -143,7 +137,7 @@ export function Hero() {
               <p className="mt-1 text-xs text-zinc-500 sm:text-sm">{stat.label}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </ScrollStagger>
 
         {/* Scroll cue */}
         <motion.a

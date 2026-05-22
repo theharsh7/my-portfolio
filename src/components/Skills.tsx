@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "./SectionHeading";
-import { stagger, fadeUp } from "./motion";
+import { ScrollSection, ScrollStagger, fadeUp } from "./motion";
 
 const skills = [
   {
@@ -39,25 +39,23 @@ const skills = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-28">
+    <ScrollSection id="skills" className="relative py-28">
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           label="Skills"
           title="Tools I ship with daily"
           description="A focused stack for reliable data platforms and the systems behind them."
         />
-        <motion.ul
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={stagger}
-          className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <ScrollStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((skill, i) => (
-            <motion.li
+            <motion.div
               key={skill.name}
               variants={fadeUp}
-              className={`glow-card rounded-2xl p-6 ${i === skills.length - 1 && skills.length % 3 !== 0 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+              className={`glow-card rounded-2xl p-6 ${
+                i === skills.length - 1 && skills.length % 3 !== 0
+                  ? "sm:col-span-2 lg:col-span-1"
+                  : ""
+              }`}
             >
               <div className="flex items-start justify-between">
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500/20 to-violet-500/20 text-lg">
@@ -73,10 +71,10 @@ export function Skills() {
               <p className="mt-2 text-sm leading-relaxed text-zinc-500">
                 {skill.description}
               </p>
-            </motion.li>
+            </motion.div>
           ))}
-        </motion.ul>
+        </ScrollStagger>
       </div>
-    </section>
+    </ScrollSection>
   );
 }
