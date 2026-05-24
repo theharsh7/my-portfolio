@@ -24,7 +24,7 @@ export function About() {
         <SectionHeading
           label="About"
           title="Professional summary"
-          description="Two years at ZS Associates delivering data engineering and analytics for Pfizer's US Oncology commercial operations."
+          description="More than two years at ZS Associates delivering data engineering and analytics for Pfizer's US Oncology commercial operations."
         />
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           <div data-gsap="reveal" className="glow-card rounded-2xl p-6 sm:p-8 lg:p-10">

@@ -24,13 +24,13 @@ const skills: {
   {
     id: "aws-s3",
     name: "AWS S3",
-    level: "Advanced",
+    level: "Intermediate",
     description: "Raw vendor file landing zones and object storage supporting end-to-end oncology data pipelines.",
   },
   {
     id: "python",
     name: "Python",
-    level: "Advanced",
+    level: "Intermediate",
     description: "ETL automation, QC checks, email alerting, and workflow orchestration across production refresh cycles.",
   },
   {
@@ -42,7 +42,7 @@ const skills: {
   {
     id: "microstrategy",
     name: "MicroStrategy",
-    level: "Advanced",
+    level: "Intermediate",
     description: "Executive business review dashboard consolidating sales, market share, and competitor intelligence.",
   },
   {

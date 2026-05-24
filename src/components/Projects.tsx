@@ -6,7 +6,7 @@ const projects = [
   {
     title: "PinPoint — Mobile Field Analytics Platform",
     period: "Jan 2024 – Jul 2025",
-    tags: ["Snowflake", "AWS S3", "Python", "SQL"],
+    tags: ["Snowflake", "AWS S3", "Python", "SQL", "Dataiku DSS"],
     description:
       "Built a 7-layer ETL pipeline (Layer 0→6) ingesting SPP, DDD, and IQVIA vendor data into territory-scoped views for 500+ field users — Dollar Sales, TRX, NPS, Calls, Reach, and TEB across rolling and quarterly time frames.",
     metric: "500+ users",
@@ -14,7 +14,14 @@ const projects = [
   {
     title: "Business Review Dashboard — MicroStrategy",
     period: "Jan 2025 – Jul 2025",
-    tags: ["Dataiku DSS", "MicroStrategy", "SQL"],
+    tags: [
+      "Dataiku DSS",
+      "MicroStrategy",
+      "Snowflake",
+      "AWS S3",
+      "Python",
+      "SQL",
+    ],
     description:
       "Solely architected backend data infrastructure in Dataiku DSS, consolidating 5+ Tableau dashboards into one unified MicroStrategy platform with standardised time filters and geographic hierarchies across all four oncology markets.",
     metric: "5+ dashboards unified",
