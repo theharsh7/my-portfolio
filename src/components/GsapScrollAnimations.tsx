@@ -52,8 +52,8 @@ export function GsapScrollAnimations() {
               "-=0.5"
             )
             .from(
-              "[data-gsap='hero-body']",
-              { y: 24, opacity: 0, duration: 0.6 },
+              "[data-gsap='hero-scene']",
+              { y: 28, opacity: 0, duration: 0.7, ease: "power2.out" },
               "-=0.55"
             )
             .from(

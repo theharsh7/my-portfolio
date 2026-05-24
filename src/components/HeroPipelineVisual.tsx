@@ -15,10 +15,7 @@ const metrics = [
 
 export function HeroPipelineVisual() {
   return (
-    <div
-      data-gsap="hero-visual"
-      className="relative mx-auto w-full max-w-lg lg:max-w-none lg:justify-self-end"
-    >
+    <div className="relative mx-auto w-full max-w-lg lg:max-w-none lg:justify-self-end">
       <div className="pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue-500/15 via-transparent to-violet-500/15 blur-2xl sm:-inset-4" />
 
       <div className="glow-card relative overflow-hidden rounded-2xl border-white/10 bg-white/[0.04] shadow-2xl shadow-blue-500/5 backdrop-blur-md">

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { HeroDataScene } from "./HeroDataScene";
 import { HeroPipelineVisual } from "./HeroPipelineVisual";
 import { HeroRotatingLine } from "./HeroRotatingLine";
+import { HeroTiltWrap } from "./HeroTiltWrap";
 import { useLenis } from "@/context/LenisContext";
 
 const techStack = [
@@ -71,24 +73,17 @@ export function Hero() {
           </div>
 
           {/* Pipeline — row 2 on mobile, right column on desktop */}
-          <div
-            className="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center"
-            data-gsap="hero-visual"
-          >
-            <HeroPipelineVisual />
+          <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
+            <HeroTiltWrap strength={8}>
+              <div data-gsap="hero-visual">
+                <HeroPipelineVisual />
+              </div>
+            </HeroTiltWrap>
           </div>
 
           {/* Body — row 3 on mobile, below title on desktop */}
           <div className="flex flex-col gap-6 sm:gap-7 lg:col-start-1 lg:row-start-2">
-            <p
-              data-gsap="hero-body"
-              className="max-w-lg text-sm leading-relaxed text-zinc-400 sm:text-base lg:text-lg"
-            >
-              Technology analytics professional delivering pipeline architecture,
-              mobile field analytics, and leadership dashboards for a 500+ person
-              US Oncology sales force — from raw vendor data to production-ready
-              insights.
-            </p>
+            <HeroDataScene />
 
             <ul className="flex flex-wrap gap-2">
               {techStack.map((tech) => (
