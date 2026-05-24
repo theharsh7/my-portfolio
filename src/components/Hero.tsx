@@ -1,10 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { HeroDataScene } from "./HeroDataScene";
 import { HeroPipelineVisual } from "./HeroPipelineVisual";
 import { HeroRotatingLine } from "./HeroRotatingLine";
-import { HeroTiltWrap } from "./HeroTiltWrap";
 import { useLenis } from "@/context/LenisContext";
 
 const techStack = [
@@ -45,87 +43,78 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="container-main relative pb-14 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-20">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
-          {/* Title — row 1 on mobile & desktop */}
-          <div
-            data-gsap="hero-content"
-            className="flex flex-col lg:col-start-1 lg:row-start-1"
+        <div
+          data-gsap="hero-content"
+          className="mx-auto flex max-w-3xl flex-col items-center text-center"
+        >
+          <h1
+            data-gsap="hero-title"
+            className="w-full text-[2.25rem] font-semibold leading-[1.08] tracking-tight min-[400px]:text-[2.5rem] sm:text-5xl lg:text-6xl xl:text-7xl"
           >
-            <h1
-              data-gsap="hero-title"
-              className="text-[2.25rem] font-semibold leading-[1.06] tracking-tight min-[400px]:text-[2.5rem] sm:text-5xl lg:text-[3.25rem] xl:text-6xl"
-            >
-              <span className="block text-gradient">Harsh Chaudhary</span>
-              <span className="mt-2 block text-[1.35rem] font-medium leading-snug text-zinc-100 min-[400px]:text-2xl sm:mt-3 sm:text-3xl lg:text-[2rem] xl:text-4xl">
-                <span className="block text-zinc-100">Technology &amp; Consulting</span>
-                <span className="mt-1 block sm:mt-1.5">
-                  <HeroRotatingLine />
-                </span>
+            <span className="block text-gradient">Harsh Chaudhary</span>
+            <span className="mt-3 block text-[1.35rem] font-medium leading-snug text-zinc-100 min-[400px]:text-2xl sm:mt-4 sm:text-3xl lg:text-4xl">
+              <span className="block text-zinc-100">Technology &amp; Consulting</span>
+              <span className="mx-auto mt-1.5 block max-w-xl sm:mt-2">
+                <HeroRotatingLine />
               </span>
-            </h1>
-            <p
-              data-gsap="hero-desc"
-              className="mt-4 max-w-md text-sm leading-relaxed text-zinc-500 sm:mt-5 sm:text-base"
+            </span>
+          </h1>
+
+          <p
+            data-gsap="hero-desc"
+            className="mt-4 max-w-lg text-sm leading-relaxed text-zinc-500 sm:mt-5 sm:text-base"
+          >
+            ZS Associates · Pfizer US Oncology — data engineering and enterprise
+            analytics across Snowflake, AWS, and BI platforms.
+          </p>
+
+          <div
+            data-gsap="hero-visual"
+            className="mt-8 w-full max-w-lg sm:mt-10 lg:max-w-xl"
+          >
+            <HeroPipelineVisual />
+          </div>
+
+          <ul className="mt-8 flex flex-wrap justify-center gap-2 sm:mt-10">
+            {techStack.map((tech) => (
+              <li
+                key={tech}
+                data-gsap="hero-pill"
+                className="rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-zinc-400 sm:px-3 sm:text-[11px]"
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+
+          <div className="action-row action-row-center mt-8 sm:mt-10">
+            <a
+              href="#projects"
+              onClick={(e) => handleAnchor(e, "#projects")}
+              data-gsap="hero-cta"
+              className="btn-primary"
             >
-              ZS Associates · Pfizer US Oncology — data engineering and
-              enterprise analytics across Snowflake, AWS, and BI platforms.
-            </p>
-          </div>
-
-          {/* Pipeline — row 2 on mobile, right column on desktop */}
-          <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
-            <HeroTiltWrap strength={8}>
-              <div data-gsap="hero-visual">
-                <HeroPipelineVisual />
-              </div>
-            </HeroTiltWrap>
-          </div>
-
-          {/* Body — row 3 on mobile, below title on desktop */}
-          <div className="flex flex-col gap-6 sm:gap-7 lg:col-start-1 lg:row-start-2">
-            <HeroDataScene />
-
-            <ul className="flex flex-wrap gap-2">
-              {techStack.map((tech) => (
-                <li
-                  key={tech}
-                  data-gsap="hero-pill"
-                  className="rounded-full border border-white/8 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-zinc-400 sm:px-3 sm:text-[11px]"
-                >
-                  {tech}
-                </li>
-              ))}
-            </ul>
-
-            <div className="action-row">
-              <a
-                href="#projects"
-                onClick={(e) => handleAnchor(e, "#projects")}
-                data-gsap="hero-cta"
-                className="btn-primary"
-              >
-                View projects
-                <span aria-hidden>→</span>
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => handleAnchor(e, "#contact")}
-                data-gsap="hero-cta"
-                className="btn-secondary"
-              >
-                Get in touch
-                <span aria-hidden>→</span>
-              </a>
-            </div>
+              View projects
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleAnchor(e, "#contact")}
+              data-gsap="hero-cta"
+              className="btn-secondary"
+            >
+              Get in touch
+              <span aria-hidden>→</span>
+            </a>
           </div>
         </div>
 
-        <ul className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:grid-cols-4 sm:gap-4 lg:mt-20">
+        <ul className="mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-3 sm:mt-16 sm:grid-cols-4 sm:gap-4 lg:mt-20">
           {stats.map((stat) => (
             <li
               key={stat.label}
               data-gsap="reveal"
-              className="glow-card list-none rounded-xl px-3 py-4 sm:px-5 sm:py-5"
+              className="glow-card list-none rounded-xl px-3 py-4 text-center sm:px-5 sm:py-5"
             >
               <p className="text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl lg:text-3xl">
                 {stat.value}

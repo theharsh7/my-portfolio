@@ -30,7 +30,7 @@ export function HeroRotatingLine() {
   }, []);
 
   return (
-    <span className="relative block min-h-[1.2em] w-full overflow-hidden sm:min-h-[1.15em]">
+    <span className="relative block min-h-[1.2em] w-full overflow-hidden text-center sm:min-h-[1.15em]">
       <AnimatePresence mode="wait">
         <motion.span
           key={phrases[index]}

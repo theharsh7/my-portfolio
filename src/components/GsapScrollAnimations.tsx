@@ -52,14 +52,9 @@ export function GsapScrollAnimations() {
               "-=0.5"
             )
             .from(
-              "[data-gsap='hero-scene']",
-              { y: 28, opacity: 0, duration: 0.7, ease: "power2.out" },
-              "-=0.55"
-            )
-            .from(
               "[data-gsap='hero-pill']",
               { y: 12, opacity: 0, stagger: 0.05, duration: 0.4 },
-              "-=0.4"
+              "-=0.35"
             )
             .from(
               "[data-gsap='hero-cta']",
@@ -68,18 +63,8 @@ export function GsapScrollAnimations() {
             );
 
           if (isDesktop) {
-            gsap.to("[data-gsap='hero-visual']", {
-              y: -40,
-              ease: "none",
-              scrollTrigger: {
-                trigger: "[data-gsap='hero']",
-                start: "top top",
-                end: "bottom top",
-                scrub: 0.6,
-              },
-            });
             gsap.to("[data-gsap='hero-content']", {
-              y: 30,
+              y: 24,
               ease: "none",
               scrollTrigger: {
                 trigger: "[data-gsap='hero']",
