@@ -34,42 +34,37 @@ export function GsapScrollAnimations() {
           /* —— Hero load + parallax —— */
           const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
           heroTl
-            .from("[data-gsap='hero-label']", { y: 20, opacity: 0, duration: 0.6 })
-            .from(
-              "[data-gsap='hero-badge']",
-              { y: 16, opacity: 0, duration: 0.5 },
-              "-=0.35"
-            )
-            .from(
-              "[data-gsap='hero-title']",
-              { y: 40, opacity: 0, duration: 0.8 },
-              "-=0.3"
-            )
+            .from("[data-gsap='hero-title']", { y: 36, opacity: 0, duration: 0.8 })
             .from(
               "[data-gsap='hero-desc']",
-              { y: 24, opacity: 0, duration: 0.6 },
+              { y: 20, opacity: 0, duration: 0.55 },
               "-=0.45"
-            )
-            .from(
-              "[data-gsap='hero-pill']",
-              { y: 12, opacity: 0, stagger: 0.05, duration: 0.4 },
-              "-=0.35"
-            )
-            .from(
-              "[data-gsap='hero-cta']",
-              { y: 16, opacity: 0, stagger: 0.08, duration: 0.5 },
-              "-=0.25"
             )
             .from(
               "[data-gsap='hero-visual']",
               {
-                y: 48,
+                y: 40,
                 opacity: 0,
-                scale: 0.94,
-                duration: 1,
+                scale: 0.96,
+                duration: 0.9,
                 ease: "power2.out",
               },
-              "-=0.7"
+              "-=0.5"
+            )
+            .from(
+              "[data-gsap='hero-body']",
+              { y: 24, opacity: 0, duration: 0.6 },
+              "-=0.55"
+            )
+            .from(
+              "[data-gsap='hero-pill']",
+              { y: 12, opacity: 0, stagger: 0.05, duration: 0.4 },
+              "-=0.4"
+            )
+            .from(
+              "[data-gsap='hero-cta']",
+              { y: 12, opacity: 0, stagger: 0.06, duration: 0.45 },
+              "-=0.3"
             );
 
           if (isDesktop) {

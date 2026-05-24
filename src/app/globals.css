@@ -69,6 +69,109 @@ body {
   padding-inline: 1rem;
 }
 
+/* Shared CTA layout — full-width stack on mobile, inline from md up */
+.action-row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .action-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: auto;
+  }
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  min-height: 3rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .btn-primary,
+  .btn-secondary {
+    width: auto;
+  }
+}
+
+.btn-primary {
+  background: #f4f4f5;
+  color: #18181b;
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.05);
+}
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    transform: scale(1.02);
+  }
+}
+
+.btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e4e4e7;
+  backdrop-filter: blur(4px);
+}
+
+@media (hover: hover) {
+  .btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.btn-gradient {
+  display: inline-flex;
+  min-height: 3rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  padding: 0.875rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.25);
+  transition:
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .btn-gradient {
+    width: auto;
+  }
+}
+
+@media (hover: hover) {
+  .btn-gradient:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.4);
+  }
+}
+
 @media (min-width: 640px) {
   .container-main {
     padding-inline: 1.5rem;

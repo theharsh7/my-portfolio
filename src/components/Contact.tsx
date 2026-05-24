@@ -49,7 +49,7 @@ export function Contact() {
               </p>
               <a
                 href="mailto:theharshchaudhary7@gmail.com"
-                className="relative mt-6 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-8 py-3.5 text-sm font-medium text-white shadow-lg shadow-violet-500/25 transition-[filter,box-shadow] hover:shadow-violet-500/40 hover:brightness-110 sm:mt-8 sm:w-auto"
+                className="btn-gradient relative mt-6 sm:mt-8"
               >
                 Send an email
                 <span>→</span>
