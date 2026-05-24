@@ -4,32 +4,15 @@ import { SectionHeading } from "./SectionHeading";
 
 const experience = [
   {
-    role: "Senior Data Engineer",
-    company: "FinTech Analytics Co.",
-    period: "2023 — Present",
+    role: "Senior Associate — Business Excellence & Technology Analytics",
+    company: "ZS Associates · US Oncology (Pfizer)",
+    location: "Gurugram, India",
+    period: "Aug 2023 – Jul 2025",
     highlights: [
-      "Led migration of legacy Redshift workloads to Snowflake, cutting query costs 40%.",
-      "Built Python-based ingestion from S3 with schema validation and alerting.",
-      "Designed dashboard backend serving 200+ internal users with sub-second loads.",
-    ],
-  },
-  {
-    role: "Data Engineer",
-    company: "Retail Insights Platform",
-    period: "2021 — 2023",
-    highlights: [
-      "Owned SQL transformation layer for 30+ dimensional models.",
-      "Implemented incremental pipelines processing 50M+ rows daily.",
-      "Partnered with analytics on self-serve metrics definitions and governance.",
-    ],
-  },
-  {
-    role: "Analytics Engineer",
-    company: "Growth SaaS Startup",
-    period: "2019 — 2021",
-    highlights: [
-      "Established dbt-style patterns and documentation for core business entities.",
-      "Automated reporting pipelines reducing manual spreadsheet work by 80%.",
+      "Embedded on ZS's Pfizer US Oncology engagement across PinPoint mobile analytics, the Business Review Dashboard, and incentive compensation programmes.",
+      "Owned data pipeline engineering, analytics product delivery, and end-to-end client engagement in a high-stakes consulting environment.",
+      "Operated independently with direct exposure to pharmaceutical commercial operations, field force effectiveness, and multi-source healthcare data (SPP, DDD, IQVIA).",
+      "Managed requirements gathering with Pfizer stakeholders through solution design, build, QC, production deployment, and ongoing iteration.",
     ],
   },
 ];
@@ -41,7 +24,7 @@ export function Experience() {
         <SectionHeading
           label="Experience"
           title="Where I've delivered impact"
-          description="Roles focused on scalable data infrastructure and cross-functional partnership."
+          description="Consulting at ZS Associates on Pfizer US Oncology — data engineering, product ownership, and client delivery."
         />
         <div className="relative md:pl-8" data-gsap="experience-list">
           <div
@@ -63,6 +46,7 @@ export function Experience() {
                         {job.role}
                       </h3>
                       <p className="text-sm text-blue-400/90">{job.company}</p>
+                      <p className="mt-1 text-xs text-zinc-500">{job.location}</p>
                     </div>
                     <time className="shrink-0 font-mono text-xs text-zinc-500">
                       {job.period}

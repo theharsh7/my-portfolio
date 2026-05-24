@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Data Engineer Portfolio",
+  title: "Harsh Chaudhary | Technology Analytics",
   description:
-    "Premium portfolio for a data engineer — pipelines, warehousing, and dashboard backend systems.",
+    "Technology analytics professional — ETL pipelines, Snowflake, AWS, and enterprise BI for Pfizer US Oncology at ZS Associates.",
 };
 
 export default function RootLayout({

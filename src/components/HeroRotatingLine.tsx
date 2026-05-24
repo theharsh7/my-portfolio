@@ -4,9 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "built for scale.",
-  "trusted by teams.",
-  "optimized for cost.",
+  "owned end-to-end.",
+  "trusted by 500+ field users.",
+  "built on Snowflake & AWS.",
 ];
 
 export function HeroRotatingLine() {

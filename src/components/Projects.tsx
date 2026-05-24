@@ -4,32 +4,28 @@ import { SectionHeading } from "./SectionHeading";
 
 const projects = [
   {
-    title: "Real-time metrics lakehouse",
-    tags: ["Snowflake", "S3", "Python"],
+    title: "PinPoint — Mobile Field Analytics Platform",
+    period: "Jan 2024 – Jul 2025",
+    tags: ["Snowflake", "AWS S3", "Python", "SQL"],
     description:
-      "Streaming-adjacent batch pipeline landing events in S3, transforming via Python, and syncing to Snowflake marts for sub-15min freshness.",
-    metric: "15 min SLA",
+      "Built a 7-layer ETL pipeline (Layer 0→6) ingesting SPP, DDD, and IQVIA vendor data into territory-scoped views for 500+ field users — Dollar Sales, TRX, NPS, Calls, Reach, and TEB across rolling and quarterly time frames.",
+    metric: "500+ users",
   },
   {
-    title: "Executive KPI dashboard API",
-    tags: ["SQL", "Dashboard Backend"],
+    title: "Business Review Dashboard — MicroStrategy",
+    period: "Jan 2025 – Jul 2025",
+    tags: ["Dataiku DSS", "MicroStrategy", "SQL"],
     description:
-      "Aggregated metrics layer with precomputed rollups and Redis caching — powering leadership dashboards with consistent definitions.",
-    metric: "<200ms p95",
+      "Solely architected backend data infrastructure in Dataiku DSS, consolidating 5+ Tableau dashboards into one unified MicroStrategy platform with standardised time filters and geographic hierarchies across all four oncology markets.",
+    metric: "5+ dashboards unified",
   },
   {
-    title: "Data quality observability",
-    tags: ["Python", "SQL"],
+    title: "Incentive Compensation — US Oncology Sales Force",
+    period: "Jul 2023 – Dec 2023",
+    tags: ["SQL", "Excel", "ZAIDYN®"],
     description:
-      "Automated contract tests, anomaly detection, and Slack alerts across 40+ critical tables with lineage-aware incident routing.",
-    metric: "40+ tables",
-  },
-  {
-    title: "Cost-aware warehouse optimizer",
-    tags: ["Snowflake", "SQL"],
-    description:
-      "Query tagging, warehouse auto-suspend policies, and monthly spend dashboards that reduced cloud warehouse spend significantly.",
-    metric: "40% savings",
+      "Administered IC competitions across lung, prostate, breast, and colorectal cancer markets on ZS's ZAIDYN® platform — validating compensation outputs and delivering HQ-level reporting for Pfizer's US Oncology sales hierarchy.",
+    metric: "4 oncology markets",
   },
 ];
 
@@ -39,10 +35,10 @@ export function Projects() {
       <div className="container-main">
         <SectionHeading
           label="Projects"
-          title="Selected work"
-          description="Production systems spanning ingestion, modeling, and the backends that surface insights."
+          title="Key workstreams at ZS"
+          description="Analytics products delivered for Pfizer US Oncology — from pipeline design through production and client iteration."
         />
-        <ul className="grid gap-4 sm:gap-6 md:grid-cols-2">
+        <ul className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <li
               key={project.title}
@@ -57,6 +53,9 @@ export function Projects() {
                   {project.metric}
                 </span>
               </div>
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-wider text-zinc-600">
+                {project.period}
+              </p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-500 sm:mt-4">
                 {project.description}
               </p>
@@ -70,16 +69,17 @@ export function Projects() {
                   </li>
                 ))}
               </ul>
-              <button
-                type="button"
-                className="mt-4 inline-flex min-h-[44px] w-fit items-center gap-1 text-sm text-zinc-400 transition-all group-hover:gap-2 group-hover:text-zinc-200 sm:mt-6"
-              >
-                Case study
-                <span>→</span>
-              </button>
             </li>
           ))}
         </ul>
+        <p
+          data-gsap="reveal"
+          className="mt-6 text-center text-sm text-zinc-500 sm:mt-8"
+        >
+          PinPoint recognised with the Pfizer &ldquo;Lead the Way&rdquo; Award
+          (2024) · Near-real-time field insights replacing multi-day manual
+          reporting cycles
+        </p>
       </div>
     </section>
   );

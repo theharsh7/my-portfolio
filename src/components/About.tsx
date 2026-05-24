@@ -4,16 +4,16 @@ import { SectionHeading } from "./SectionHeading";
 
 const focusAreas = [
   {
-    title: "Warehouse & modeling",
-    desc: "Dimensional models, incremental loads, and governed marts in Snowflake.",
+    title: "ETL & cloud data platforms",
+    desc: "7-layer pipeline architecture on Snowflake and AWS S3 — ingestion through app-ready output with lineage, QC automation, and reliable refresh cycles.",
   },
   {
-    title: "Pipeline engineering",
-    desc: "Python ETL, S3 landing zones, and fault-tolerant batch workflows.",
+    title: "Analytics product ownership",
+    desc: "Requirements through production: mobile field analytics, unified leadership dashboards, and client-facing delivery in high-pressure consulting.",
   },
   {
-    title: "Dashboard backends",
-    desc: "APIs and aggregation layers that feed fast, trustworthy BI surfaces.",
+    title: "US Oncology commercial ops",
+    desc: "Pharma field force effectiveness, multi-source healthcare data (SPP, DDD, IQVIA), and oncology markets — lung, prostate, breast, and colorectal.",
   },
 ];
 
@@ -23,23 +23,25 @@ export function About() {
       <div className="container-main">
         <SectionHeading
           label="About"
-          title="Engineering data systems end to end"
-          description="From ingestion to insight — I design pipelines and platforms that stay fast, observable, and easy to evolve."
+          title="Professional summary"
+          description="Two years at ZS Associates delivering data engineering and analytics for Pfizer's US Oncology commercial operations."
         />
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
           <div data-gsap="reveal" className="glow-card rounded-2xl p-6 sm:p-8 lg:p-10">
             <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
-              I&apos;m a data engineer focused on building production-grade
-              analytics infrastructure. I work across the modern data stack —
-              warehousing in Snowflake, orchestration in Python, and cloud
-              storage on AWS — with a strong emphasis on SQL modeling and
-              backend systems that power internal dashboards.
+              Technology analytics professional with consulting experience at ZS
+              Associates, delivering data engineering and analytics solutions for
+              Pfizer&apos;s US Oncology commercial operations — a multi-billion
+              dollar portfolio spanning lung, prostate, breast, and colorectal
+              cancer markets.
             </p>
             <p className="mt-5 text-sm leading-relaxed text-zinc-400 sm:mt-6 sm:text-base">
-              My approach blends Stripe-level reliability with clean,
-              Apple-inspired interfaces for the teams who consume the data.
-              I care about lineage, cost efficiency, and developer experience
-              as much as query performance.
+              Combines deep technical capability in ETL pipeline architecture,
+              cloud data platforms, and enterprise BI with business acumen to
+              manage senior client relationships and translate complex
+              requirements into high-adoption analytics products. Track record of
+              owning products end-to-end — from Snowflake and AWS pipelines to
+              client delivery and continuous improvement.
             </p>
           </div>
           <ul className="flex flex-col gap-3 sm:gap-4">

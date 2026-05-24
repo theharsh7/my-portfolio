@@ -1,10 +1,12 @@
-import { Cloud } from "lucide-react";
 import {
-  SiFastapi,
-  SiPostgresql,
-  SiPython,
-  SiSnowflake,
-} from "react-icons/si";
+  BarChart3,
+  Cloud,
+  FileSpreadsheet,
+  GitBranch,
+  LayoutDashboard,
+  Workflow,
+} from "lucide-react";
+import { SiPostgresql, SiPython, SiSnowflake } from "react-icons/si";
 import type { IconType } from "react-icons";
 import type { LucideIcon } from "lucide-react";
 import type { SVGProps } from "react";
@@ -14,7 +16,11 @@ export type SkillId =
   | "snowflake"
   | "aws-s3"
   | "python"
-  | "dashboard";
+  | "dataiku"
+  | "microstrategy"
+  | "tableau"
+  | "etl"
+  | "excel";
 
 type SkillIconComponent =
   | IconType
@@ -26,7 +32,11 @@ const icons: Record<SkillId, SkillIconComponent> = {
   snowflake: SiSnowflake,
   "aws-s3": Cloud,
   python: SiPython,
-  dashboard: SiFastapi,
+  dataiku: Workflow,
+  microstrategy: LayoutDashboard,
+  tableau: BarChart3,
+  etl: GitBranch,
+  excel: FileSpreadsheet,
 };
 
 const brandColors: Record<SkillId, string> = {
@@ -34,8 +44,21 @@ const brandColors: Record<SkillId, string> = {
   snowflake: "text-cyan-300",
   "aws-s3": "text-amber-400",
   python: "text-yellow-400",
-  dashboard: "text-emerald-400",
+  dataiku: "text-orange-400",
+  microstrategy: "text-blue-400",
+  tableau: "text-emerald-400",
+  etl: "text-violet-400",
+  excel: "text-green-400",
 };
+
+const lucideIds: SkillId[] = [
+  "aws-s3",
+  "dataiku",
+  "microstrategy",
+  "tableau",
+  "etl",
+  "excel",
+];
 
 export function SkillIcon({
   id,
@@ -45,7 +68,7 @@ export function SkillIcon({
   className?: string;
 }) {
   const Icon = icons[id];
-  const isLucide = id === "aws-s3";
+  const isLucide = lucideIds.includes(id);
 
   return (
     <Icon

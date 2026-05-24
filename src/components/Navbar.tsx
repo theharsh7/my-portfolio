@@ -59,7 +59,7 @@ export function Navbar() {
           onClick={(e) => handleNav(e, "#")}
           className="text-sm font-semibold tracking-tight text-zinc-100"
         >
-          DE<span className="text-gradient-accent">.</span>
+          HC<span className="text-gradient-accent">.</span>
         </a>
 
         <ul className="hidden items-center gap-6 md:flex lg:gap-8">

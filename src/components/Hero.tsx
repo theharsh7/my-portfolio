@@ -5,13 +5,21 @@ import { HeroPipelineVisual } from "./HeroPipelineVisual";
 import { HeroRotatingLine } from "./HeroRotatingLine";
 import { useLenis } from "@/context/LenisContext";
 
-const techStack = ["SQL", "Snowflake", "AWS S3", "Python", "Dashboard APIs"];
+const techStack = [
+  "SQL",
+  "Snowflake",
+  "AWS S3",
+  "Python",
+  "Dataiku DSS",
+  "MicroStrategy",
+  "Tableau",
+];
 
 const stats = [
-  { value: "5+", label: "Years experience" },
-  { value: "50M+", label: "Rows / day" },
-  { value: "12+", label: "Live pipelines" },
-  { value: "99.9%", label: "Uptime" },
+  { value: "2+", label: "Years at ZS" },
+  { value: "500+", label: "Field users served" },
+  { value: "7", label: "Layer ETL pipeline" },
+  { value: "2024", label: "Pfizer Lead the Way Award" },
 ];
 
 export function Hero() {
@@ -41,7 +49,7 @@ export function Hero() {
               data-gsap="hero-label"
               className="mb-4 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 sm:mb-5 sm:text-xs"
             >
-              Data Engineer
+              Technology Analytics · Delhi · 25
             </p>
 
             <div
@@ -59,7 +67,7 @@ export function Hero() {
               data-gsap="hero-title"
               className="text-[2rem] font-semibold leading-[1.08] tracking-tight min-[400px]:text-[2.35rem] sm:text-5xl lg:text-[3.25rem] xl:text-7xl"
             >
-              <span className="block text-gradient">Data pipelines</span>
+              <span className="block text-gradient">Harsh Chaudhary</span>
               <span className="mt-1 block text-zinc-100">
                 <HeroRotatingLine />
               </span>
@@ -69,9 +77,10 @@ export function Hero() {
               data-gsap="hero-desc"
               className="mt-5 max-w-lg text-sm leading-relaxed text-zinc-400 sm:mt-7 sm:text-base lg:text-lg"
             >
-              I design warehouse architectures, ETL on AWS & Python, and
-              dashboard backends in Snowflake — so analytics teams ship metrics
-              they can trust.
+              Technology analytics professional with consulting experience at ZS
+              Associates — delivering data engineering and analytics for Pfizer
+              US Oncology commercial operations across Snowflake, AWS, and
+              enterprise BI.
             </p>
 
             <ul className="mt-5 flex flex-wrap gap-2 sm:mt-6">

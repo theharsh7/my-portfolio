@@ -12,32 +12,74 @@ const skills: {
   {
     id: "sql",
     name: "SQL",
-    level: "Expert",
-    description: "Complex analytics, window functions, and performance tuning.",
+    level: "Advanced",
+    description: "Pipeline transforms, compensation validation, and complex analytics across oncology commercial data.",
   },
   {
     id: "snowflake",
     name: "Snowflake",
     level: "Advanced",
-    description: "Warehousing, clustering, streams, and cost optimization.",
+    description: "Cloud data warehouse for multi-layer ETL — ingestion, transformation, and app-ready output with full lineage.",
   },
   {
     id: "aws-s3",
     name: "AWS S3",
     level: "Advanced",
-    description: "Data lakes, partitioning, and secure object pipelines.",
+    description: "Raw vendor file landing zones and object storage supporting end-to-end oncology data pipelines.",
   },
   {
     id: "python",
     name: "Python",
     level: "Advanced",
-    description: "ETL frameworks, automation, and data quality tooling.",
+    description: "ETL automation, QC checks, email alerting, and workflow orchestration across production refresh cycles.",
   },
   {
-    id: "dashboard",
-    name: "Dashboard Backend Systems",
+    id: "dataiku",
+    name: "Dataiku DSS",
     level: "Advanced",
-    description: "REST APIs, caching layers, and metrics aggregation.",
+    description: "Unified backend for MicroStrategy — automated ETL flows and extensible brand-market data models.",
+  },
+  {
+    id: "microstrategy",
+    name: "MicroStrategy",
+    level: "Advanced",
+    description: "Executive business review dashboard consolidating sales, market share, and competitor intelligence.",
+  },
+  {
+    id: "tableau",
+    name: "Tableau",
+    level: "Advanced",
+    description: "Supporting dashboards and field analytics alongside PinPoint mobile delivery.",
+  },
+  {
+    id: "etl",
+    name: "ETL / ELT Pipeline Design",
+    level: "Advanced",
+    description: "7-layer pipeline architecture with automated QC, scheduling, and error handling at every stage.",
+  },
+  {
+    id: "excel",
+    name: "Excel & PowerPoint",
+    level: "Advanced",
+    description: "Ad hoc reporting, compensation modelling, and client-facing HQ decks for stakeholder sign-off.",
+  },
+];
+
+const skillGroups = [
+  {
+    title: "Platform & automation",
+    items:
+      "Automated workflows · QC automation · Email alerting · Scheduling · Error handling",
+  },
+  {
+    title: "AI & GenAI",
+    items:
+      "LLM concepts · Copilot tools · Agentic AI awareness · AI use case identification · Data readiness for AI",
+  },
+  {
+    title: "Soft skills & domain",
+    items:
+      "Client relationship management · Senior stakeholder communication · Cross-functional collaboration · Healthcare & life sciences · US Oncology · SPP, DDD, IQVIA",
   },
 ];
 
@@ -47,8 +89,8 @@ export function Skills() {
       <div className="container-main">
         <SectionHeading
           label="Skills"
-          title="Tools I ship with daily"
-          description="A focused stack for reliable data platforms and the systems behind them."
+          title="Technical toolkit"
+          description="Data engineering, cloud platforms, enterprise BI, and the consulting skills behind high-adoption analytics products."
         />
         <ul className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {skills.map((skill) => (
@@ -70,6 +112,20 @@ export function Skills() {
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-500">
                 {skill.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4">
+          {skillGroups.map((group) => (
+            <li
+              key={group.title}
+              data-gsap="reveal"
+              className="glow-card list-none rounded-xl p-5 sm:p-6"
+            >
+              <h3 className="text-sm font-medium text-zinc-100">{group.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+                {group.items}
               </p>
             </li>
           ))}
