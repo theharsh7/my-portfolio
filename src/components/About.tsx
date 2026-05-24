@@ -26,8 +26,11 @@ export function About() {
           title="Professional summary"
           description="More than two years at ZS Associates delivering data engineering and analytics for Pfizer's US Oncology commercial operations."
         />
-        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-          <div data-gsap="reveal" className="glow-card rounded-2xl p-6 sm:p-8 lg:p-10">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-8">
+          <article
+            data-gsap="about-summary"
+            className="glow-card glow-card-flat min-w-0 rounded-2xl p-6 sm:p-8 lg:p-10"
+          >
             <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
               Technology analytics professional with consulting experience at ZS
               Associates, delivering data engineering and analytics solutions for
@@ -43,13 +46,14 @@ export function About() {
               owning products end-to-end — from Snowflake and AWS pipelines to
               client delivery and continuous improvement.
             </p>
-          </div>
-          <ul className="flex flex-col gap-3 sm:gap-4">
+          </article>
+
+          <div className="grid min-w-0 gap-4 sm:gap-5">
             {focusAreas.map((item) => (
-              <li
+              <article
                 key={item.title}
-                data-gsap="reveal"
-                className="glow-card group list-none rounded-xl p-5 sm:p-6"
+                data-gsap="about-focus"
+                className="glow-card glow-card-flat group relative min-w-0 rounded-xl p-5 sm:p-6"
               >
                 <h3 className="text-sm font-medium text-zinc-100 transition-colors group-hover:text-gradient-accent">
                   {item.title}
@@ -57,9 +61,9 @@ export function About() {
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500">
                   {item.desc}
                 </p>
-              </li>
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </section>

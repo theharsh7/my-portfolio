@@ -154,6 +154,41 @@ export function GsapScrollAnimations() {
             },
           });
 
+          /* —— About: summary + focus cards (sequential, no batch overlap) —— */
+          const aboutSummary = document.querySelector(
+            "[data-gsap='about-summary']"
+          );
+          if (aboutSummary) {
+            gsap.from(aboutSummary, {
+              y: revealY,
+              opacity: 0,
+              duration: revealDuration,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: aboutSummary,
+                start: "top 88%",
+                once: true,
+              },
+            });
+          }
+
+          gsap.utils
+            .toArray<HTMLElement>("[data-gsap='about-focus']")
+            .forEach((card, i) => {
+              gsap.from(card, {
+                y: isDesktop ? 32 : 24,
+                opacity: 0,
+                duration: revealDuration,
+                delay: i * 0.1,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 92%",
+                  once: true,
+                },
+              });
+            });
+
           /* —— Experience timeline —— */
           const line = document.querySelector("[data-gsap='timeline-line']");
           if (line && isDesktop) {

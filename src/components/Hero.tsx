@@ -55,8 +55,10 @@ export function Hero() {
             >
               <span className="block text-gradient">Harsh Chaudhary</span>
               <span className="mt-2 block text-[1.35rem] font-medium leading-snug text-zinc-100 min-[400px]:text-2xl sm:mt-3 sm:text-3xl lg:text-[2rem] xl:text-4xl">
-                Analytics products{" "}
-                <HeroRotatingLine />
+                <span className="block text-zinc-100">Technology &amp; Consulting</span>
+                <span className="mt-1 block sm:mt-1.5">
+                  <HeroRotatingLine />
+                </span>
               </span>
             </h1>
             <p

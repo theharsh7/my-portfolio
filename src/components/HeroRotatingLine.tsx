@@ -4,9 +4,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "owned end-to-end.",
-  "trusted by 500+ field users.",
-  "built on Snowflake & AWS.",
+  "Data Engineer",
+  "Business Consulting",
+  "Pharma Consulting",
+  "Business Dashboards",
+  "Snowflake",
+  "AWS S3",
+  "ETL Pipelines",
+  "MicroStrategy",
 ];
 
 export function HeroRotatingLine() {
@@ -20,19 +25,19 @@ export function HeroRotatingLine() {
 
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % phrases.length);
-    }, 3200);
+    }, 2800);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <span className="relative inline-block min-h-[1.15em] overflow-hidden align-bottom">
+    <span className="relative block min-h-[1.2em] w-full overflow-hidden sm:min-h-[1.15em]">
       <AnimatePresence mode="wait">
         <motion.span
           key={phrases[index]}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -24 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="inline-block text-gradient-accent"
         >
           {phrases[index]}
