@@ -50,13 +50,13 @@ export function Projects() {
             <li
               key={project.title}
               data-gsap="project-card"
-              className="glow-card group flex list-none flex-col rounded-2xl p-5 sm:p-6 lg:p-8"
+              className="glow-card group flex min-w-0 list-none flex-col rounded-2xl p-5 sm:p-6 lg:p-8"
             >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                <h3 className="text-lg font-medium tracking-tight text-zinc-100 transition-colors group-hover:text-gradient-accent sm:text-xl">
+              <div className="flex flex-col gap-2">
+                <h3 className="min-w-0 text-lg font-medium tracking-tight text-zinc-100 transition-colors group-hover:text-gradient-accent sm:text-xl">
                   {project.title}
                 </h3>
-                <span className="w-fit shrink-0 rounded-lg bg-gradient-to-r from-blue-600/20 to-violet-600/20 px-3 py-1 font-mono text-xs text-blue-300">
+                <span className="w-fit max-w-full rounded-lg bg-gradient-to-r from-blue-600/20 to-violet-600/20 px-3 py-1 font-mono text-xs leading-snug text-blue-300">
                   {project.metric}
                 </span>
               </div>
