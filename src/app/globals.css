@@ -69,6 +69,143 @@ body {
   padding-inline: 1rem;
 }
 
+@media (min-width: 640px) {
+  .container-main {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-main {
+    padding-inline: 2rem;
+  }
+}
+
+/* Hero — full viewport, 3D depth */
+.hero-section {
+  isolation: isolate;
+}
+
+.hero-container {
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.hero-ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 1400px;
+}
+
+.hero-ambient-glow {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(90vw, 56rem);
+  height: min(50vh, 28rem);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(59, 130, 246, 0.14) 0%,
+    rgba(139, 92, 246, 0.08) 40%,
+    transparent 72%
+  );
+}
+
+.hero-ambient-plane {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.06) 0%,
+    rgba(139, 92, 246, 0.04) 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 60px rgba(59, 130, 246, 0.06);
+  transform-style: preserve-3d;
+}
+
+.hero-ambient-plane-1 {
+  width: min(85vw, 52rem);
+  height: min(42vw, 18rem);
+  transform: translate(-50%, -48%) rotateX(68deg) rotateZ(-8deg);
+  animation: hero-plane-drift-1 22s ease-in-out infinite;
+}
+
+.hero-ambient-plane-2 {
+  width: min(70vw, 40rem);
+  height: min(32vw, 14rem);
+  transform: translate(-50%, -42%) rotateX(72deg) rotateZ(12deg);
+  animation: hero-plane-drift-2 18s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.hero-stage {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.hero-title-3d {
+  transform: translateZ(24px);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 40px rgba(59, 130, 246, 0.12);
+}
+
+.hero-pipeline-3d {
+  perspective: 1400px;
+  max-width: min(100%, 56rem);
+  margin-inline: auto;
+}
+
+.hero-pipeline-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hero-pipeline-depth {
+  transform: translateZ(32px);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+}
+
+@keyframes hero-plane-drift-1 {
+  0%,
+  100% {
+    transform: translate(-50%, -48%) rotateX(68deg) rotateZ(-8deg);
+  }
+  50% {
+    transform: translate(-50%, -44%) rotateX(64deg) rotateZ(4deg);
+  }
+}
+
+@keyframes hero-plane-drift-2 {
+  0%,
+  100% {
+    transform: translate(-50%, -42%) rotateX(72deg) rotateZ(12deg);
+  }
+  50% {
+    transform: translate(-50%, -46%) rotateX(76deg) rotateZ(-6deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ambient-plane-1,
+  .hero-ambient-plane-2 {
+    animation: none;
+  }
+
+  .hero-title-3d,
+  .hero-pipeline-depth {
+    transform: none;
+  }
+}
+
 /* Shared CTA layout — full-width stack on mobile, inline from md up */
 .action-row {
   display: flex;
@@ -180,18 +317,6 @@ body {
   .btn-gradient:hover {
     filter: brightness(1.1);
     box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.4);
-  }
-}
-
-@media (min-width: 640px) {
-  .container-main {
-    padding-inline: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-main {
-    padding-inline: 2rem;
   }
 }
 

@@ -15,10 +15,10 @@ const metrics = [
 
 export function HeroPipelineVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-lg lg:max-w-none lg:justify-self-end">
-      <div className="pointer-events-none absolute -inset-3 rounded-3xl bg-gradient-to-br from-blue-500/15 via-transparent to-violet-500/15 blur-2xl sm:-inset-4" />
+    <div className="relative mx-auto w-full">
+      <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/20 via-violet-500/10 to-transparent blur-3xl sm:-inset-6" />
 
-      <div className="glow-card relative overflow-hidden rounded-2xl border-white/10 bg-white/[0.04] shadow-2xl shadow-blue-500/5 backdrop-blur-md">
+      <div className="glow-card relative overflow-hidden rounded-2xl border-white/10 bg-white/[0.05] shadow-2xl shadow-blue-500/10 backdrop-blur-md sm:rounded-3xl">
         <div className="flex items-center justify-between border-b border-white/5 px-3 py-2.5 sm:px-4 sm:py-3">
           <div className="flex gap-1.5">
             <span className="h-2 w-2 rounded-full bg-zinc-600 sm:h-2.5 sm:w-2.5" />
@@ -37,7 +37,7 @@ export function HeroPipelineVisual() {
           </span>
         </div>
 
-        <div className="p-4 sm:p-6">
+        <div className="p-5 sm:p-7 lg:p-8">
           <div className="relative mb-5 sm:mb-6">
             <svg
               className="absolute left-0 right-0 top-1/2 h-6 -translate-y-1/2 text-zinc-700 sm:h-8"
