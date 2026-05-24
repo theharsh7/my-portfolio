@@ -2,7 +2,7 @@
 
 const nodes = [
   { id: "s3", label: "AWS S3", sub: "Raw zone" },
-  { id: "py", label: "SQL", sub: "ETL" },
+  { id: "sql", label: "SQL", sub: "ETL" },
   { id: "py", label: "Python", sub: "Automation" },
   { id: "sf", label: "Snowflake", sub: "Warehouse" },
   { id: "dash", label: "Dashboard", sub: "API" },
@@ -80,7 +80,7 @@ export function HeroPipelineVisual() {
                 </linearGradient>
               </defs>
             </svg>
-            <ul className="relative grid grid-cols-4 gap-1 sm:gap-2">
+            <ul className="relative grid grid-cols-5 gap-1 sm:gap-2">
               {nodes.map((node) => (
                 <li
                   key={node.id}
