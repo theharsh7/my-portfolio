@@ -2,7 +2,8 @@
 
 const nodes = [
   { id: "s3", label: "AWS S3", sub: "Raw zone" },
-  { id: "py", label: "Python", sub: "ETL" },
+  { id: "py", label: "SQL", sub: "ETL" },
+  { id: "py", label: "Python", sub: "Automation" },
   { id: "sf", label: "Snowflake", sub: "Warehouse" },
   { id: "dash", label: "Dashboard", sub: "API" },
 ];
@@ -66,7 +67,13 @@ export function HeroPipelineVisual() {
                 className="pipeline-flow-line"
               />
               <defs>
-                <linearGradient id="flow-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient
+                  id="flow-gradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
                   <stop offset="0%" stopColor="#3b82f6" stopOpacity="0" />
                   <stop offset="50%" stopColor="#8b5cf6" />
                   <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
@@ -75,14 +82,19 @@ export function HeroPipelineVisual() {
             </svg>
             <ul className="relative grid grid-cols-4 gap-1 sm:gap-2">
               {nodes.map((node) => (
-                <li key={node.id} className="flex flex-col items-center text-center">
+                <li
+                  key={node.id}
+                  className="flex flex-col items-center text-center"
+                >
                   <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[9px] font-medium text-zinc-300 sm:h-11 sm:w-11 sm:text-[10px]">
                     {node.label.split(" ")[0].slice(0, 2).toUpperCase()}
                   </div>
                   <p className="mt-1.5 text-[9px] font-medium text-zinc-300 sm:mt-2 sm:text-xs">
                     {node.label}
                   </p>
-                  <p className="text-[8px] text-zinc-600 sm:text-[9px]">{node.sub}</p>
+                  <p className="text-[8px] text-zinc-600 sm:text-[9px]">
+                    {node.sub}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -94,7 +106,9 @@ export function HeroPipelineVisual() {
                 key={m.label}
                 className="rounded-lg border border-white/5 bg-white/[0.03] px-2 py-2 sm:px-3 sm:py-2.5"
               >
-                <p className="text-[8px] text-zinc-500 sm:text-[10px]">{m.label}</p>
+                <p className="text-[8px] text-zinc-500 sm:text-[10px]">
+                  {m.label}
+                </p>
                 <p className="mt-0.5 font-mono text-[10px] font-medium text-zinc-100 sm:text-sm">
                   {m.value}
                 </p>
