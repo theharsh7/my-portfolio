@@ -1,19 +1,45 @@
 "use client";
 
 import Lenis from "lenis";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useSyncExternalStore, type ReactNode } from "react";
 import { LenisProvider } from "@/context/LenisContext";
 import { registerGsapPlugins, gsap, ScrollTrigger } from "@/lib/gsap-config";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
+let currentLenis: Lenis | null = null;
+const lenisListeners = new Set<() => void>();
+
+function subscribeLenis(callback: () => void) {
+  lenisListeners.add(callback);
+  return () => lenisListeners.delete(callback);
+}
+
+function getLenisSnapshot() {
+  return currentLenis;
+}
+
+function getServerLenisSnapshot() {
+  return null;
+}
+
+function publishLenis(instance: Lenis | null) {
+  currentLenis = instance;
+  lenisListeners.forEach((listener) => listener());
+}
+
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
-  const [lenis, setLenis] = useState<Lenis | null>(null);
+  const lenis = useSyncExternalStore(
+    subscribeLenis,
+    getLenisSnapshot,
+    getServerLenisSnapshot
+  );
   const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     registerGsapPlugins();
 
     if (reducedMotion) {
+      publishLenis(null);
       document.documentElement.classList.remove("lenis", "lenis-smooth");
       return;
     }
@@ -26,7 +52,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
       autoRaf: false,
     });
 
-    setLenis(instance);
+    publishLenis(instance);
     document.documentElement.classList.add("lenis", "lenis-smooth");
 
     instance.on("scroll", ScrollTrigger.update);
@@ -41,7 +67,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     return () => {
       gsap.ticker.remove(ticker);
       instance.destroy();
-      setLenis(null);
+      publishLenis(null);
       document.documentElement.classList.remove("lenis", "lenis-smooth");
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
