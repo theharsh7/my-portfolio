@@ -58,10 +58,18 @@ export function Hero() {
             data-gsap="hero-title"
             className="hero-title-3d w-full text-[2.35rem] font-semibold leading-[1.06] tracking-tight min-[400px]:text-[2.65rem] sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
           >
-            <span className="block text-gradient">Harsh Chaudhary</span>
-            <span className="mt-3 block text-[1.35rem] font-medium leading-snug text-zinc-100 min-[400px]:text-2xl sm:mt-4 sm:text-3xl lg:text-4xl">
+            <span data-gsap="hero-name" className="block text-gradient">
+              Harsh Chaudhary
+            </span>
+            <span
+              data-gsap="hero-role"
+              className="mt-3 block text-[1.35rem] font-medium leading-snug text-zinc-100 min-[400px]:text-2xl sm:mt-4 sm:text-3xl lg:text-4xl"
+            >
               <span className="block text-zinc-100">Technology &amp; Consulting</span>
-              <span className="mx-auto mt-1.5 block max-w-2xl sm:mt-2">
+              <span
+                data-gsap="hero-rotating-line"
+                className="mx-auto mt-1.5 block max-w-2xl sm:mt-2"
+              >
                 <HeroRotatingLine />
               </span>
             </span>

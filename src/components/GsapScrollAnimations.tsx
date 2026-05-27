@@ -30,31 +30,145 @@ export function GsapScrollAnimations() {
 
           const revealY = isDesktop ? 56 : 32;
           const revealDuration = isDesktop ? 1 : 0.7;
+          const heroVisualY = isDesktop ? 48 : 24;
+          const heroVisualDuration = isDesktop ? 0.9 : 0.65;
+          const pipelineNodeStagger = isDesktop ? 0.12 : 0.07;
 
           /* —— Hero load + parallax —— */
           const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+          const pipelineStatusText = document.querySelector(
+            "[data-gsap='pipeline-status-text']"
+          );
+
+          if (pipelineStatusText) {
+            pipelineStatusText.textContent = "initializing";
+          }
+
+          gsap.set("[data-gsap='pipeline-flow']", {
+            attr: { x2: 40 },
+            opacity: 0,
+          });
+
           heroTl
-            .from("[data-gsap='hero-title']", { y: 36, opacity: 0, duration: 0.8 })
+            .from("[data-gsap='hero-name']", {
+              y: isDesktop ? 34 : 22,
+              opacity: 0,
+              filter: "blur(8px)",
+              duration: isDesktop ? 0.8 : 0.6,
+              clearProps: "filter",
+            })
+            .from(
+              "[data-gsap='hero-role']",
+              {
+                y: isDesktop ? 24 : 16,
+                opacity: 0,
+                duration: isDesktop ? 0.65 : 0.5,
+              },
+              "-=0.45"
+            )
+            .from(
+              "[data-gsap='hero-rotating-line']",
+              {
+                y: isDesktop ? 16 : 10,
+                opacity: 0,
+                duration: isDesktop ? 0.55 : 0.42,
+              },
+              "-=0.25"
+            )
             .from(
               "[data-gsap='hero-visual']",
               {
-                y: 48,
+                y: heroVisualY,
                 opacity: 0,
-                scale: 0.92,
-                rotateX: 12,
-                duration: 1,
+                scale: isDesktop ? 0.94 : 0.98,
+                rotateX: isDesktop ? 10 : 0,
+                duration: heroVisualDuration,
                 ease: "power2.out",
               },
-              "-=0.4"
+              "-=0.2"
             )
-            .from(
-              "[data-gsap='hero-pill']",
-              { y: 12, opacity: 0, stagger: 0.05, duration: 0.4 },
+            .to(
+              "[data-gsap='pipeline-flow']",
+              {
+                attr: { x2: 360 },
+                opacity: 1,
+                duration: isDesktop ? 0.8 : 0.55,
+                ease: "power2.inOut",
+              },
               "-=0.35"
             )
             .from(
+              "[data-gsap='pipeline-node']",
+              {
+                y: isDesktop ? 18 : 10,
+                opacity: 0,
+                scale: isDesktop ? 0.86 : 0.92,
+                stagger: pipelineNodeStagger,
+                duration: isDesktop ? 0.5 : 0.36,
+                ease: "back.out(1.35)",
+              },
+              "-=0.55"
+            )
+            .to(
+              "[data-gsap='pipeline-status-dot']",
+              {
+                scale: 1.25,
+                duration: 0.18,
+                yoyo: true,
+                repeat: 1,
+              },
+              "-=0.05"
+            )
+            .call(() => {
+              if (pipelineStatusText) {
+                pipelineStatusText.textContent = "running";
+              }
+            })
+            .from(
+              "[data-gsap='pipeline-status']",
+              {
+                opacity: 0.45,
+                duration: 0.25,
+              },
+              "<"
+            )
+            .from(
+              "[data-gsap='pipeline-metric']",
+              {
+                y: isDesktop ? 16 : 10,
+                opacity: 0,
+                stagger: isDesktop ? 0.08 : 0.05,
+                duration: isDesktop ? 0.45 : 0.32,
+              },
+              "-=0.2"
+            )
+            .from(
+              "[data-gsap='pipeline-code']",
+              {
+                y: isDesktop ? 18 : 10,
+                opacity: 0,
+                duration: isDesktop ? 0.5 : 0.34,
+              },
+              "-=0.25"
+            )
+            .from(
+              "[data-gsap='hero-pill']",
+              {
+                y: isDesktop ? 12 : 8,
+                opacity: 0,
+                stagger: isDesktop ? 0.05 : 0.025,
+                duration: isDesktop ? 0.4 : 0.28,
+              },
+              "-=0.1"
+            )
+            .from(
               "[data-gsap='hero-cta']",
-              { y: 12, opacity: 0, stagger: 0.06, duration: 0.45 },
+              {
+                y: isDesktop ? 12 : 8,
+                opacity: 0,
+                stagger: 0.06,
+                duration: isDesktop ? 0.45 : 0.32,
+              },
               "-=0.3"
             );
 

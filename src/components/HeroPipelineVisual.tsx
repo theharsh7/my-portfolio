@@ -19,7 +19,10 @@ export function HeroPipelineVisual() {
     <div className="relative mx-auto w-full">
       <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/20 via-violet-500/10 to-transparent blur-3xl sm:-inset-6" />
 
-      <div className="glow-card relative overflow-hidden rounded-2xl border-white/10 bg-white/[0.05] shadow-2xl shadow-blue-500/10 backdrop-blur-md sm:rounded-3xl">
+      <div
+        data-gsap="pipeline-shell"
+        className="glow-card relative overflow-hidden rounded-2xl border-white/10 bg-white/[0.05] shadow-2xl shadow-blue-500/10 backdrop-blur-md sm:rounded-3xl"
+      >
         <div className="flex items-center justify-between border-b border-white/5 px-3 py-2.5 sm:px-4 sm:py-3">
           <div className="flex gap-1.5">
             <span className="h-2 w-2 rounded-full bg-zinc-600 sm:h-2.5 sm:w-2.5" />
@@ -29,12 +32,15 @@ export function HeroPipelineVisual() {
           <span className="font-mono text-[9px] uppercase tracking-wider text-zinc-500 sm:text-[10px]">
             pipeline.live
           </span>
-          <span className="flex items-center gap-1 font-mono text-[9px] text-emerald-400/90 sm:text-[10px]">
-            <span className="relative flex h-1.5 w-1.5">
+          <span
+            data-gsap="pipeline-status"
+            className="flex items-center gap-1 font-mono text-[9px] text-emerald-400/90 sm:text-[10px]"
+          >
+            <span data-gsap="pipeline-status-dot" className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
               <span className="relative h-1.5 w-1.5 rounded-full bg-emerald-400" />
             </span>
-            running
+            <span data-gsap="pipeline-status-text">running</span>
           </span>
         </div>
 
@@ -65,6 +71,7 @@ export function HeroPipelineVisual() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 className="pipeline-flow-line"
+                data-gsap="pipeline-flow"
               />
               <defs>
                 <linearGradient
@@ -84,15 +91,16 @@ export function HeroPipelineVisual() {
               {nodes.map((node) => (
                 <li
                   key={node.id}
-                  className="flex flex-col items-center text-center"
+                  data-gsap="pipeline-node"
+                  className="flex min-w-0 flex-col items-center text-center"
                 >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[9px] font-medium text-zinc-300 sm:h-11 sm:w-11 sm:text-[10px]">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-[8px] font-medium text-zinc-300 min-[400px]:h-9 min-[400px]:w-9 min-[400px]:text-[9px] sm:h-11 sm:w-11 sm:text-[10px]">
                     {node.label.split(" ")[0].slice(0, 2).toUpperCase()}
                   </div>
-                  <p className="mt-1.5 text-[9px] font-medium text-zinc-300 sm:mt-2 sm:text-xs">
+                  <p className="mt-1.5 max-w-full whitespace-nowrap text-[8px] font-medium text-zinc-300 min-[400px]:text-[9px] sm:mt-2 sm:text-xs">
                     {node.label}
                   </p>
-                  <p className="text-[8px] text-zinc-600 sm:text-[9px]">
+                  <p className="max-w-full whitespace-nowrap text-[7px] text-zinc-600 min-[400px]:text-[8px] sm:text-[9px]">
                     {node.sub}
                   </p>
                 </li>
@@ -104,6 +112,7 @@ export function HeroPipelineVisual() {
             {metrics.map((m) => (
               <div
                 key={m.label}
+                data-gsap="pipeline-metric"
                 className="rounded-lg border border-white/5 bg-white/[0.03] px-2 py-2 sm:px-3 sm:py-2.5"
               >
                 <p className="text-[8px] text-zinc-500 sm:text-[10px]">
@@ -119,7 +128,10 @@ export function HeroPipelineVisual() {
             ))}
           </div>
 
-          <div className="overflow-hidden rounded-lg border border-white/5 bg-black/40 font-mono text-[9px] leading-relaxed sm:text-[11px]">
+          <div
+            data-gsap="pipeline-code"
+            className="overflow-hidden rounded-lg border border-white/5 bg-black/40 font-mono text-[9px] leading-relaxed sm:text-[11px]"
+          >
             <div className="border-b border-white/5 px-2.5 py-1 text-zinc-600 sm:px-3 sm:py-1.5">
               metrics_daily.sql
             </div>
